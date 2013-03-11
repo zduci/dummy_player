@@ -4,7 +4,7 @@ class Player
 
   def initialize
     @words = Hash.new
-    text = File.open('en.txt').read
+    text = File.open(File.join(File.dirname(__FILE__), 'en.txt')).read
     text.gsub!(/\r\n?/, "\n")
     text.each_line do |line|
       unless line.count("'") > 0
