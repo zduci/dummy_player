@@ -38,12 +38,21 @@ class Player
   def look_up(state, guesses)
     maybe = @words[state.size]
     maybe.each do |m|
-      guesses.each do |g|
-        unless m.include?(g)
-          return diff(m, state)[0]
+      return m[0] if cool(m, guesses) && compare(m, state) 
+    end
+  end
+
+  def compare(maybe, state)
+    state.split(//).each_with_index do |char, index|
+      found = true
+      if char != '_'
+        if maybe[index] != state[index]
+          found = false
         end
       end
+      return true if found
     end
+    return false
   end
 
   def diff(maybe, state)
@@ -53,5 +62,12 @@ class Player
         result << maybe[i]
       end
     end
+  end
+
+  def cool(maybe, guesses)
+    maybe.split(//).each do |e|
+      return false if guesses.include?(e)
+    end
+    return true
   end
 end
