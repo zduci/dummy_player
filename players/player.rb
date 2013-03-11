@@ -1,4 +1,4 @@
-#require 'my_helper'
+require 'my_helper'
 class Player
   COMMON = ["e", "t", "a", "o", "i", "n", "s", "h", "r", "d", "l", "c", "u"]
 
@@ -7,11 +7,6 @@ class Player
   end
 
   def take_turn(state, guesses)
-    turn = which_turn(guesses)
-    COMMON[turn - 1]
-  end
-
-  def take_turn_future(state, guesses)
     turn = which_turn(guesses)
     COMMON[turn - 1]
   end
@@ -32,3 +27,5 @@ class Player
   def look_up(state, guesses)
   end
 end
+
+puts Player.new.take_turn(nil, [])
