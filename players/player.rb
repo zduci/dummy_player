@@ -22,7 +22,7 @@ class Player
     "Radu"
   end
 
-  def take_turn_future(state, guesses)
+  def take_turn(state, guesses)
     turn = which_turn(guesses)
     if turn < COMMON.size + 1
       COMMON[turn - 1]
