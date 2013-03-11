@@ -1,4 +1,4 @@
-require 'my_helper'
+#require 'my_helper'
 class Player
   COMMON = ["e", "t", "a", "o"]
 
@@ -47,5 +47,3 @@ class Player
 
   end
 end
-
-Player.new
