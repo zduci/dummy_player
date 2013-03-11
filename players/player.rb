@@ -27,5 +27,3 @@ class Player
   def look_up(state, guesses)
   end
 end
-
-puts Player.new.take_turn(nil, [])
