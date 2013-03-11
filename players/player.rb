@@ -1,6 +1,6 @@
-#require 'my_helper'
+require 'my_helper'
 class Player
-  COMMON = ["e", "t", "a", "o", "i", "n", "s", "h", "r", "d", "l", "c", "u"]
+  COMMON = ["e", "t", "a", "o"]
 
   def initialize
     @words = Hash.new
@@ -22,11 +22,6 @@ class Player
     "Radu"
   end
 
-  def take_turn(state, guesses)
-    turn = which_turn(guesses)
-    COMMON[turn - 1]
-  end
-
   def take_turn_future(state, guesses)
     turn = which_turn(guesses)
     if turn < COMMON.size + 1
@@ -41,6 +36,15 @@ class Player
   end
 
   def look_up(state, guesses)
+    maybe = @words[state.size]
+    maybe.each do |m|
+      guesses.each do |g|
+        unless m.include?(g)
+          return m
+        end
+      end
+    end
+
   end
 end
 
