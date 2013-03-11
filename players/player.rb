@@ -13,6 +13,11 @@ class Player
 
   def take_turn_future(state, guesses)
     turn = which_turn(guesses)
+    COMMON[turn - 1]
+  end
+
+  def take_turn_future(state, guesses)
+    turn = which_turn(guesses)
     if turn < COMMON.size + 1
       COMMON[turn - 1]
     else
