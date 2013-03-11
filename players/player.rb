@@ -7,6 +7,10 @@ class Player
   end
 
   def take_turn(state, guesses)
+      COMMON[turn - 1]
+  end
+
+  def take_turn_future(state, guesses)
     turn = which_turn(guesses)
     COMMON[turn - 1]
   end
