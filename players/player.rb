@@ -1,4 +1,4 @@
-#require 'my_helper'
+require 'my_helper'
 class Player
   COMMON = ["e", "t", "a", "o"]
 
