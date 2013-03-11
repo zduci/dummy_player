@@ -40,10 +40,18 @@ class Player
     maybe.each do |m|
       guesses.each do |g|
         unless m.include?(g)
-          return m
+          return diff(m, state)[0]
         end
       end
     end
+  end
 
+  def diff(maybe, state)
+    result = []
+    state.split(//).each_with_index do |char, i|
+      if char == '_'
+        result << maybe[i]
+      end
+    end
   end
 end
