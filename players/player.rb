@@ -1,7 +1,7 @@
 require 'my_helper'
 class Player
   def name
-    "Change Me"
+    "Radu"
   end
 
   def take_turn(state, guesses)
