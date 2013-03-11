@@ -1,6 +1,22 @@
-require 'my_helper'
+#require 'my_helper'
 class Player
   COMMON = ["e", "t", "a", "o", "i", "n", "s", "h", "r", "d", "l", "c", "u"]
+
+  def initialize
+    @words = Hash.new
+    text = File.open('en.txt').read
+    text.gsub!(/\r\n?/, "\n")
+    text.each_line do |line|
+      unless line.count("'") > 0
+        word = line.split(" ").first
+        if @words[word.size]
+          @words[word.size] << word
+        else
+          @words[word.size] = [word]
+        end
+      end
+    end
+  end
 
   def name
     "Radu"
@@ -27,3 +43,5 @@ class Player
   def look_up(state, guesses)
   end
 end
+
+Player.new
